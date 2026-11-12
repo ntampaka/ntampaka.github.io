@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <title>The Thinking Machine | Michelle Ntampaka</title>
+    <style>
+      :root{--paper:#F6F4EE;--ink:#203342;--teal:#496477;--rust:#B77554;--gold:#AD9076;--line:#b9c9ce}*{box-sizing:border-box}body{margin:0;background:#e5eced;color:var(--ink);font-family:Georgia,serif}main{max-width:1080px;margin:26px auto;padding:24px;background:var(--paper);border:2px solid var(--ink);box-shadow:9px 9px 0 #b5b4a5}.eyebrow{font:700 12px/1.5 ui-monospace,monospace;letter-spacing:.15em;color:#447d7c}.top{display:flex;justify-content:space-between;gap:20px;align-items:start}h1{font-size:clamp(30px,5vw,55px);margin:6px 0 8px;letter-spacing:-.03em}p{line-height:1.5}.sub{max-width:650px;margin:0 0 18px}.badge{font:700 12px ui-monospace,monospace;border:1px solid;padding:10px;white-space:nowrap}.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:25px}.board-wrap{border:2px solid var(--ink);padding:12px;background:#e4ebed;position:relative}.board{width:100%;height:auto;display:block;touch-action:none;background:#fffefb}.tile{fill:#fffefb}.tile-alt{fill:#e7eeef}.gridline{stroke:#b6b8ac;stroke-width:1.1}.tilebound{stroke:#8b9d98;stroke-width:2;stroke-dasharray:4 5}.gate{stroke:var(--teal);stroke-width:13;stroke-linecap:round;transition:transform var(--turn-speed,340ms) cubic-bezier(.2,1.25,.35,1)}.gate-edge{stroke:#203342;stroke-width:2;stroke-linecap:round;transition:transform var(--turn-speed,340ms) cubic-bezier(.2,1.25,.35,1)}.pivot{fill:var(--rust);stroke:#F6F4EE;stroke-width:2}.mouse{transition:transform 180ms ease-in-out}.mouse-body{fill:var(--rust);stroke:#F6F4EE;stroke-width:2}.goal{fill:#AD9076}.goal-text{fill:#203342;font:700 23px Georgia,serif}.panel{display:flex;flex-direction:column;gap:13px}.panel section{border-top:2px solid var(--ink);padding-top:12px}h2{font-size:18px;margin:0 0 9px}.stat{display:flex;justify-content:space-between;align-items:center;font:700 13px ui-monospace,monospace}.stat strong{font-size:26px}.controls{display:grid;grid-template-columns:repeat(3,56px);grid-template-rows:repeat(2,50px);gap:7px;justify-content:center}button,select{font:700 14px ui-monospace,monospace;color:var(--ink);background:#fff9ea;border:2px solid var(--ink);border-radius:2px;padding:11px;cursor:pointer}button:hover{background:#d4e4de}button:focus-visible,select:focus-visible{outline:3px solid var(--rust);outline-offset:3px}button:disabled{opacity:.4;cursor:not-allowed}.controls button{font-size:24px;padding:0}.actions{display:flex;flex-wrap:wrap;gap:8px}.actions button{flex:1}.primary{background:var(--teal);color:white}.primary:hover{background:#275f65}.legend{font:12px/1.5 ui-monospace,monospace;color:#53686c}.status{background:#fdf8ea;border-left:5px solid var(--rust);padding:12px;font:14px/1.5 ui-monospace,monospace;min-height:70px}.levels{display:flex;gap:6px;flex-wrap:wrap}.levels button[aria-pressed=true]{background:var(--ink);color:#fff}.small{font-size:13px}.speed{display:flex;align-items:center;gap:8px;justify-content:space-between}.foot{border-top:1px solid #c8c0ae;margin-top:20px;padding-top:12px;font:12px/1.5 ui-monospace,monospace;color:#596d70}.win{color:#196b64;font-weight:bold}@media(max-width:730px){main{margin:0;padding:14px;border:0;box-shadow:none}.layout{grid-template-columns:1fr}.panel{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel section{min-width:0}.controls{grid-template-columns:repeat(3,56px)}.top{display:block}.badge{display:inline-block;margin-bottom:10px}}@media(max-width:440px){.panel{grid-template-columns:1fr}.board-wrap{padding:6px}.sub{font-size:14px}}@media(prefers-reduced-motion:reduce){.gate,.gate-edge,.mouse{transition-duration:0ms!important}}
+      
+      /* Thinking Machine console reskin: visual only; puzzle state machine unchanged. */
+      :root{--paper:#e9e1cc;--ink:#1b3440;--teal:#4a8884;--rust:#d18c4c;--gold:#d9b568;--line:#9ba9a3}
+      body{background:repeating-linear-gradient(0deg,#1b3440 0,#1b3440 3px,#203b46 3px,#203b46 6px)}
+      main{background:#e8dfc8;border:5px solid #152f3a;box-shadow:0 0 0 5px #56837d,12px 12px 0 #102732;max-width:1100px}
+      .eyebrow{color:#346d70}.badge{background:#203342;color:#e9e1cc;border-color:#203342}
+      h1{text-transform:uppercase;letter-spacing:.035em;font-family:ui-monospace,monospace;font-weight:900}
+      .sub{font-family:ui-monospace,monospace;font-size:13px;line-height:1.8}
+      .board-wrap{background:#254954;border:8px solid #254954;box-shadow:inset 0 0 0 3px #d3a65d;padding:7px}
+      .board{background:#f4eddc;border:2px solid #a8a38d}
+      .tile{fill:#f5eedc}.tile-alt{fill:#e9e4d3}
+      .gate{stroke:#4a8884;stroke-width:14}.gate-edge{stroke:#1b4149;stroke-width:3;opacity:.35}
+      .pivot{fill:#d6a65d;stroke:#163b45;stroke-width:2.5}
+      .goal{fill:#e6d7ad;stroke:#a77940;stroke-width:2;stroke-dasharray:4 3}
+      .goal-text{fill:#1b3440;font:700 27px ui-monospace,monospace}
+      .signal-ring{fill:#203e48;stroke:#d9a85a;stroke-width:3}
+      .signal-core{fill:#e5ae59;stroke:#fff0d1;stroke-width:1.5}
+      .panel section{border-top:3px double #1b3440}
+      .panel h2{font-family:ui-monospace,monospace;text-transform:uppercase;letter-spacing:.055em;font-size:14px}
+      .stat strong{color:#a66b37}.status{background:#1d3a45;color:#e7dfc9;border-left:5px solid #d9a85a}
+      button,select{border-radius:0}.controls button{background:#d4e3d8}.controls button:hover{background:#b6d3ca}
+      .legend{color:#344f56}.foot{letter-spacing:.08em}
+      @media(max-width:730px){main{box-shadow:none;border-width:3px}.board-wrap{border-width:5px}}
+      
+      /* MK II: physical instrument housing, no changes to maze mechanics */
+      body{background:#223a42;background-image:radial-gradient(circle at 50% -20%,#41606a 0%,#1a313b 75%);padding:22px}
+      main{max-width:1150px;border:12px solid #526b70;border-radius:18px;background:#d9d2be;box-shadow:inset 0 0 0 3px #a3a493,0 16px 0 #132b33,0 28px 40px #091b21;padding:28px}
+      .top{border-bottom:2px solid #7b8a83;padding-bottom:14px;margin-bottom:22px}
+      h1{font-size:clamp(28px,4.6vw,46px);color:#1c3741;margin-bottom:4px}
+      .eyebrow{font-size:10px;letter-spacing:.19em}
+      .badge{border:3px solid #324d56;background:#1a333d;color:#e7d6ac;line-height:1.9;text-align:right;letter-spacing:.09em;box-shadow:inset 0 2px 5px #0b1d23}
+      .badge small{color:#91b8ad}.ready-lamp{display:inline-block;width:11px;height:11px;background:#a7d7ae;border-radius:50%;box-shadow:0 0 0 2px #456e5d,0 0 11px #b1ebae;margin-right:8px}
+      .layout{grid-template-columns:minmax(0,1fr) 275px;gap:24px}
+      .instrument-head{display:flex;justify-content:space-between;gap:10px;padding:10px 13px;background:#19343f;color:#c1d8c9;border:4px solid #324f59;border-bottom:0;font:700 11px ui-monospace,monospace;letter-spacing:.08em}
+      .board-wrap{background:#0f2832;border:10px solid #314e59;border-top:0;border-radius:0 0 12px 12px;padding:13px;box-shadow:inset 0 0 0 3px #8b8d78,0 6px 0 #77827c;position:relative}
+      .board{border:2px solid #75938e;background:#102c36;filter:drop-shadow(0 0 5px #4c8178)}
+      .tile{fill:#173741}.tile-alt{fill:#1b4049}.gridline{stroke:#45626a;stroke-width:1.1}.tilebound{stroke:#6a8d87}
+      .gate{stroke:#79b8a8;stroke-width:13;filter:drop-shadow(0 0 2px #64a697)}.gate-edge{stroke:#b0d5bd;opacity:.32}.pivot{fill:#d5a65f;stroke:#142c35;stroke-width:3}
+      .goal{fill:#1d4e4d;stroke:#a6dfbc}.goal-text{fill:#a9e5c3}.signal-ring{fill:#3b4139;stroke:#e5bd78}.signal-core{fill:#e5bd78}
+      .glass-reflection{pointer-events:none;position:absolute;inset:13px;background:linear-gradient(155deg,rgba(218,244,226,.09),transparent 28%,transparent 72%,rgba(220,244,225,.025));border-radius:4px}
+      .lamp-strip{display:flex;gap:12px;align-items:center;justify-content:space-between;background:#29434c;border:3px solid #526b70;border-top:0;padding:10px 12px;color:#d9c69f}.strip-title{font:700 10px ui-monospace,monospace;letter-spacing:.07em}.lamps{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.register-lamp{width:11px;height:11px;border-radius:50%;border:2px solid #b8a78c;box-shadow:inset 0 1px 3px #1b3037}.register-lamp.lit{background:#e5b66a;box-shadow:0 0 9px #d6a056}.register-lamp.dim{background:#526f6a}
+      .panel{background:#c7c4b2;border:3px solid #85958c;padding:15px;box-shadow:inset 0 0 0 2px #e9e3cd;gap:15px}
+      .panel section{border-top:1px solid #8b9d92}.panel section:first-child{border-top:0;padding-top:0}.panel h2{color:#25444d;font-size:12px;letter-spacing:.13em}
+      button,select{background:#e9e2ce;border:2px solid #51656a;border-bottom-width:5px;border-radius:3px;box-shadow:0 2px 0 #778780;color:#243d46;transition:background .12s,transform .12s,box-shadow .12s}
+      button:active{transform:translateY(3px);border-bottom-width:2px;box-shadow:none}.controls button{background:#e5d7b9;border-color:#4a6067;font-size:22px}.controls button:hover{background:#f4e4c4}.levels button[aria-pressed=true]{background:#2b535a;color:#f5e8cd}
+      .status{background:#17343e;color:#c6e2d1;border:4px inset #758e89;min-height:88px;font:700 12px/1.65 ui-monospace,monospace;letter-spacing:.035em}
+      .stat strong{color:#2c5458}.legend{margin:15px 4px}.foot{color:#4c6365}
+      @media(max-width:760px){body{padding:0}main{border:5px solid #526b70;border-radius:0;padding:14px;box-shadow:none}.layout{grid-template-columns:1fr}.panel{display:grid;grid-template-columns:1fr 1fr}.board-wrap{padding:7px;border-width:6px}.glass-reflection{inset:7px}}
+      @media(max-width:490px){.panel{grid-template-columns:1fr}.instrument-head{font-size:9px}.strip-title{font-size:8px}.lamp-strip{gap:6px}.register-lamp{width:9px;height:9px}.badge{font-size:10px}}
+      @media(prefers-reduced-motion:reduce){button{transition:none}}
+      
+      .output-lamp{display:inline-block;vertical-align:middle;width:24px;height:24px;border-radius:50%;margin-right:7px;background:radial-gradient(circle at 35% 30%,#665d46,#332f29 65%);border:3px solid #b9a17a;box-shadow:inset 0 2px 5px #111b20,0 0 0 2px #243c45;transition:background .22s,box-shadow .22s}
+      .output-lamp.on{background:radial-gradient(circle at 35% 30%,#fffbd1,#f9d65f 45%,#d68a28 82%);box-shadow:0 0 0 2px #243c45,0 0 12px 5px #efc35c,0 0 25px #e7ad4b;animation:output-glow .8s ease-out}
+      #output-label{color:#e4c58c;font:700 11px ui-monospace,monospace;letter-spacing:.08em}
+      @keyframes output-glow{0%{filter:brightness(1.9)}100%{filter:brightness(1)}}
+      @media(prefers-reduced-motion:reduce){.output-lamp.on{animation:none}}
+      .machine-exit{position:fixed;top:15px;right:18px;z-index:100;width:46px;height:46px;display:grid;place-items:center;font:32px Arial,sans-serif;color:#203342;background:#F6F4EE;border:1px solid #203342;text-decoration:none}.machine-exit:hover{background:#AD9076}
+      button:focus-visible,a:focus-visible{outline:3px solid #B77554;outline-offset:2px}
+    </style>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <style>
+      .prototype-return{display:block;max-width:1080px;margin:18px auto 0;padding:10px 24px;color:#203342;font:14px system-ui}.prototype-return:focus-visible{outline:3px solid #8b693c;outline-offset:3px}
+    </style>
+    <link href="assets/build7.css" rel="stylesheet"/>
+    <link href="assets/build8.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <a class="prototype-return" href="index.html">Back to Rigorous Curiosity</a>
+    <main>
+      <a aria-label="Close The Thinking Machine and return to homepage" class="machine-exit" href="index.html">×</a>
+      <header class="top">
+        <div>
+          <div class="eyebrow">
+            MICHELLE NTAMPAKA · THINKING MACHINE / EXPERIMENT 02
+          </div>
+          <h1>The Thinking Machine</h1>
+          <p class="sub"><strong>SHIFTING CIRCUITS / NAVIGATION TEST.</strong> Guide the signal through a reconfiguring logic array.&nbsp; Every successful move pivots all gates <em>except</em> the gate in the 2×2 module you just departed.</p>
+        </div>
+        <div class="badge">
+          <span aria-label="Output lamp off" class="output-lamp" id="output-lamp" role="img"></span> <span id="output-label">OUTPUT IDLE</span><br/><span class="ready-lamp"></span> SYSTEM READY<br/><small>NT–1969 / MK II</small>
+        </div>
+      </header>
+      <div class="layout">
+        <div>
+          <div class="instrument-head">
+            <span>DISPLAY UNIT 01 / LOGIC MATRIX</span><span id="cycle">CYCLE 0000</span>
+          </div>
+          <div class="board-wrap">
+            <svg aria-label="Rotating-gate logic maze. Use arrow keys or on-screen buttons to move the signal." class="board" id="board" role="img" viewbox="0 0 400 400"></svg>
+            <div aria-hidden="true" class="glass-reflection"></div>
+          </div>
+          <div aria-label="Gate activity indicator" class="lamp-strip">
+            <span class="strip-title">GATE REGISTERS</span>
+            <div aria-hidden="true" class="lamps" id="lamps"></div>
+            <span class="strip-title">01 / ACTIVE</span>
+          </div>
+          <p class="legend">TEAL = ROTATING GATE &nbsp;·&nbsp; AMBER = SIGNAL &nbsp;·&nbsp; ◈ = OUTPUT<br/>Each gate sits at the center of a 2×2 group of cells.&nbsp; Gates block crossings between cells, not the cells themselves.</p>
+        </div>
+        <aside class="panel">
+
+          <!-- PAGE SECTION -->
+          <section>
+            <h2>Choose a maze</h2>
+            <div class="levels" id="levels">
+              <button aria-pressed="true" data-level="0">01 · 6×6</button>
+              <button aria-pressed="false" data-level="1">02 · 8×8</button>
+              <button aria-pressed="false" data-level="2">03 · 10×10</button>
+            </div>
+          </section>
+
+          <!-- PAGE SECTION -->
+          <section>
+            <div class="stat">
+              <span>MOVES</span><strong id="moves">00</strong>
+            </div>
+            <div class="stat">
+              <span>GATES THAT TURN</span><span id="gates">3</span>
+            </div>
+          </section>
+
+          <!-- PAGE SECTION -->
+          <section>
+            <h2>Directional input</h2>
+            <div class="controls">
+              <span></span>
+              <button aria-label="Move up" data-dir="U">↑</button>
+              <span></span>
+              <button aria-label="Move left" data-dir="L">←</button>
+              <button aria-label="Move down" data-dir="D">↓</button>
+              <button aria-label="Move right" data-dir="R">→</button>
+            </div>
+            <p class="small">Arrow keys, WASD, swipe, or tap.&nbsp; Only legal moves turn the gates.</p>
+          </section>
+
+          <!-- PAGE SECTION -->
+          <section>
+            <h2>Console controls</h2>
+            <div class="actions">
+              <button id="undo">↶ Undo</button>
+              <button id="reset">↻ Restart</button>
+            </div>
+            <div class="speed">
+              <label for="speed">Gate animation</label>
+              <select id="speed"><option value="550">Leisurely</option><option selected="" value="340">Normal</option><option value="170">Quick</option><option value="0">Off</option></select>
+            </div>
+          </section>
+
+          <!-- PAGE SECTION -->
+          <section>
+            <h2>Machine readout</h2>
+            <div aria-live="polite" class="status" id="status" role="status">
+              Reach the output terminal.&nbsp; After every successful move, the other gates rotate 90°.
+            </div>
+            <p class="small">The gate belonging to the signal's <em>departure</em> 2×2 module stays put.&nbsp; When crossing between rooms, that departure room's gate is exempt.</p>
+          </section>
+        </aside>
+      </div>
+      <footer class="foot">
+        NT–1969 / THINKING MACHINE / MECHANICAL LOGIC STUDIES &nbsp;·&nbsp; THREE SOLVER-VERIFIED STARTING CONFIGURATIONS &nbsp;·&nbsp; LOCAL-ONLY GAME
+      </footer>
+    </main>
+    <script>
+      (()=>{'use strict';const levels=[{n:6,mask:82},{n:8,mask:29714},{n:10,mask:22369621}];const svg=document.getElementById('board'),NS='http://www.w3.org/2000/svg';let level=0,n=6,mask=82,x=0,y=0,moves=0,busy=false,won=false,history=[],gateEls=[],mouseEl;const speed=document.getElementById('speed');const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const el=(tag,attrs={},parent=svg)=>{const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,v));parent.appendChild(e);return e};const cell=()=>400/n;const gateAngle=(m,i)=>((m>>i)&1)?0:90;function draw(){svg.innerHTML='';gateEls=[];const c=cell();for(let yy=0;yy<n;yy++)for(let xx=0;xx<n;xx++)el('rect',{x:xx*c,y:yy*c,width:c,height:c,class:(Math.floor(xx/2)+Math.floor(yy/2))%2?'tile-alt':'tile'});for(let i=1;i<n;i++){el('line',{x1:i*c,y1:0,x2:i*c,y2:400,class:i%2?'gridline':'tilebound'});el('line',{x1:0,y1:i*c,x2:400,y2:i*c,class:i%2?'gridline':'tilebound'})}el('rect',{x:(n-1)*c+6,y:(n-1)*c+6,width:c-12,height:c-12,rx:8,class:'goal'});el('text',{x:(n-.5)*c,y:(n-.5)*c+8,'text-anchor':'middle',class:'goal-text'}).textContent='◈';const tiles=n/2;for(let ty=0;ty<tiles;ty++)for(let tx=0;tx<tiles;tx++){const i=ty*tiles+tx,cx=(tx*2+1)*c,cy=(ty*2+1)*c;const g=el('g',{transform:`translate(${cx} ${cy})`});const length=c*.84;const inner=el('g',{},g);inner.style.transformOrigin='center';inner.style.transformBox='fill-box';inner.style.transform=`rotate(${gateAngle(mask,i)}deg)`;const gate=el('line',{x1:0,y1:-length,x2:0,y2:length,class:'gate'},inner);el('line',{x1:0,y1:-length,x2:0,y2:length,class:'gate-edge',opacity:.22},inner);el('circle',{cx:0,cy:0,r:6,class:'pivot'},g);gateEls.push(inner)}mouseEl=el('g',{class:'mouse signal'});mouseEl.style.transform=`translate(${c/2}px,${c/2}px)`;el('circle',{cx:0,cy:0,r:c*.23,class:'signal-ring'},mouseEl);el('path',{d:`M 0 ${-c*.16} L ${c*.16} 0 L 0 ${c*.16} L ${-c*.16} 0 Z`,class:'signal-core'},mouseEl);el('circle',{cx:0,cy:0,r:Math.max(2,c*.036),fill:'#fff5dc'},mouseEl);updateStats()}
+      function setOutputLamp(on){const lamp=document.getElementById("output-lamp");lamp.classList.toggle("on",on);lamp.setAttribute("aria-label",on?"Output lamp illuminated: goal reached":"Output lamp off: goal not yet reached");document.getElementById("output-label").textContent=on?"OUTPUT VERIFIED":"OUTPUT IDLE";}function updateStats(){document.getElementById("cycle").textContent="CYCLE "+String(moves).padStart(4,"0");const lamps=document.getElementById("lamps");lamps.innerHTML="";for(let i=0;i<(n/2)**2;i++){const lamp=document.createElement("span");lamp.className="register-lamp "+(((mask>>i)&1)?"lit":"dim");lamp.title="Gate "+(i+1)+(((mask>>i)&1)?" vertical":" horizontal");lamps.appendChild(lamp)}document.getElementById('moves').textContent=String(moves).padStart(2,'0');document.getElementById('gates').textContent=(n/2)**2-1;document.getElementById('undo').disabled=busy||!history.length;document.querySelectorAll('[data-dir]').forEach(b=>b.disabled=busy||won)}function status(t){document.getElementById('status').textContent=t}function load(i){if(busy)return;level=i;n=levels[i].n;mask=levels[i].mask;x=0;y=0;moves=0;won=false;history=[];setOutputLamp(false);document.querySelectorAll('[data-level]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.level===i)));draw();status('Reach the output terminal. The gate in your departure module stays still; all others rotate.')}function legal(dx,dy){const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=n||ny>=n)return false;const tx=x>>1,ty=y>>1;if(tx===(nx>>1)&&ty===(ny>>1)){const bit=ty*(n/2)+tx,vertical=(mask>>bit)&1;if(dx!==0&&vertical)return false;if(dy!==0&&!vertical)return false}return true}
+      function move(dir){if(busy||won)return;const [dx,dy]={U:[0,-1],D:[0,1],L:[-1,0],R:[1,0]}[dir];if(!legal(dx,dy)){status('PATH OBSTRUCTED // SELECT ALTERNATE INPUT');return}history.push({x,y,mask,moves});const tx=x>>1,ty=y>>1,exempt=ty*(n/2)+tx;const all=(1<<((n/2)**2))-1;mask^=all^(1<<exempt);x+=dx;y+=dy;moves++;busy=true;updateStats();const c=cell();mouseEl.style.transform=`translate(${(x+.5)*c}px,${(y+.5)*c}px)`;gateEls.forEach((g,i)=>{g.style.transformOrigin='center';g.style.transformBox='fill-box';g.style.transitionDuration=(reduced?0:+speed.value)+'ms';g.style.transform=`rotate(${gateAngle(mask,i)}deg)`});const duration=reduced?0:+speed.value;status(`LOGIC RECONFIGURED // REGISTER ${String(exempt+1).padStart(2,"0")} HELD // ${gateEls.length-1} GATES ROTATED`);setTimeout(()=>{busy=false;won=x===n-1&&y===n-1;if(won){setOutputLamp(true);status(`OUTPUT VERIFIED // ${moves} CYCLES // HUMAN REASONING ACCEPTED`);}updateStats()},Math.max(duration,180)+30)}
+      // SVG transforms are applied with CSS after initial attribute rotation; preserve orientation by resetting initial transform.
+      function reset(){load(level)}document.querySelectorAll('[data-level]').forEach(b=>b.addEventListener('click',()=>load(+b.dataset.level)));document.querySelectorAll('[data-dir]').forEach(b=>b.addEventListener('click',()=>move(b.dataset.dir)));document.getElementById('reset').addEventListener('click',reset);document.getElementById('undo').addEventListener('click',()=>{if(busy||!history.length)return;const p=history.pop();x=p.x;y=p.y;mask=p.mask;moves=p.moves;won=false;setOutputLamp(false);draw();status('PREVIOUS STATE RESTORED // MEMORY CLEARED');});document.addEventListener('keydown',e=>{if(['SELECT','INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;const k={ArrowUp:'U',ArrowDown:'D',ArrowLeft:'L',ArrowRight:'R',w:'U',s:'D',a:'L',d:'R'}[e.key];if(k){e.preventDefault();move(k)}});let start=null;svg.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY}});svg.addEventListener('pointerup',e=>{if(!start)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;start=null;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;move(Math.abs(dx)>Math.abs(dy)?dx>0?'R':'L':dy>0?'D':'U')});load(0);
+      })();
+    </script>
+  </body>
+</html>

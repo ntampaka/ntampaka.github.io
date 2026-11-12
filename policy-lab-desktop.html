@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <title>The Policy Lab · Michelle Ntampaka · Michelle Ntampaka</title>
+    <style>
+      :root{--cream:#f3ead7;--paper:#F6F4EE;--navy:#203342;--teal:#496477;--rust:#B77554;--gold:#d1a456;--line:#c9b99b}*{box-sizing:border-box}body{margin:0;background:#e5dcc9;color:var(--navy);font-family:Georgia,serif}.page{max-width:1050px;margin:35px auto;padding:32px;background:var(--cream);border:2px solid var(--navy);box-shadow:8px 8px 0 #c7b89b}.eyebrow,.small,button,select,.counter,.value,.footer{font-family:ui-monospace,Menlo,Consolas,monospace}.eyebrow{font-size:11px;letter-spacing:2px;color:#456e6d;font-weight:bold}h1{font-size:clamp(32px,5vw,56px);font-weight:normal;margin:12px 0}p{line-height:1.55}.intro{max-width:740px}.dashboard{display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,420px);gap:25px;margin-top:25px}.panel{background:var(--paper);border:1px solid var(--line);padding:20px}.chart-panel{align-self:start;position:sticky;top:12px}.counter{background:var(--navy);color:var(--cream);padding:16px;display:flex;justify-content:space-between;align-items:center;gap:15px}.counter strong{font-size:30px}.counter span{font-size:11px;letter-spacing:1px}.progress{height:8px;background:#d5c8b2;margin:15px 0}.progress>div{height:100%;background:var(--teal);width:0;transition:width .15s}h2{font-size:20px;font-weight:normal;margin:0 0 12px}.axis{padding:12px 0;border-bottom:1px solid #e3d8c3}.axis-header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}.axis label{font-size:15px}.value{font-size:15px;font-weight:bold}.control{display:flex;align-items:center;gap:10px}.control input[type=range]{flex:1;min-width:0;width:100%;accent-color:var(--teal);cursor:pointer;touch-action:pan-y}.step{width:34px;height:34px;flex:0 0 34px;font-size:19px;padding:0}button{border:1px solid var(--navy);background:var(--cream);color:var(--navy);padding:10px 14px;cursor:pointer;font-size:12px;letter-spacing:.3px}button:hover:not(:disabled){background:#e6d7b8}button:disabled{opacity:.35;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--rust);outline-offset:3px}.primary{background:var(--navy);color:var(--cream)}.primary:hover:not(:disabled){background:#315761}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.actions button{flex:1}#radar{display:block;width:100%;height:auto;overflow:visible}select{width:100%;padding:12px;margin:9px 0 4px;background:var(--cream);color:var(--navy);border:1px solid var(--navy);font-size:12px}.legend{display:flex;gap:16px;flex-wrap:wrap;font:12px ui-monospace,monospace;margin:8px 0 16px}.swatch{display:inline-block;width:16px;height:4px;vertical-align:middle;margin-right:6px;background:var(--teal)}.swatch.reference{background:var(--rust)}.small{font-size:11px;color:#607373;line-height:1.5}.results{margin-top:20px;padding:20px;background:#e6e9db;border-left:5px solid var(--teal)}.results[hidden]{display:none}.results h2{margin-top:5px}.results a{color:#205f66}.footer{border-top:1px solid var(--line);margin-top:25px;padding-top:15px;font-size:11px;color:#637271}a{color:#205f66}svg text{font-family:ui-monospace,Menlo,Consolas,monospace;fill:var(--navy);font-size:10px}@media(max-width:760px){.page{margin:0;padding:18px;border:0;box-shadow:none}.dashboard{grid-template-columns:1fr}.chart-panel{position:static;order:-1}.panel{padding:14px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+      
+      .print-sheet{display:none}.print-action{margin:5px 0 13px;width:100%;text-align:center;border-style:dashed}
+      @media print{
+       @page{size:letter;margin:0.65in}
+       body{background:#fff!important;color:#111!important}
+       .page{display:none!important}
+       .print-sheet{display:block!important;font-family:Georgia,serif;color:#111;background:#fff}
+       .print-sheet h1{font-size:27pt;margin:0 0 5pt;font-weight:normal}.print-sheet .print-subtitle{font:italic 12pt Georgia,serif;margin:0 0 10pt}
+       .print-sheet .print-sub{font:9pt ui-monospace,monospace;letter-spacing:1px;margin:0 0 12pt}
+       .print-sheet svg{display:block;width:100%;max-width:6.3in;height:5.15in;margin:0 auto}
+       .print-sheet table{width:100%;border-collapse:collapse;font:9pt ui-monospace,monospace;page-break-inside:avoid}
+       .print-sheet td{padding:2pt 8pt;border-bottom:1px solid #ccc}
+       .print-sheet td:last-child{text-align:right;font-weight:bold}
+       .print-sheet .print-note{margin-top:12pt;border:2px solid #333;padding:12pt 14pt;page-break-inside:avoid}.print-sheet .print-note strong{display:block;font: bold 12pt Georgia,serif;margin-bottom:5pt}.print-sheet .print-note p{font:9pt Georgia,serif;margin:3pt 0}.print-sheet .print-note a{font:10pt ui-monospace,monospace;color:#111;text-decoration:underline;overflow-wrap:anywhere}
+       .print-sheet *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      }
+    </style>
+    <link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+    <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+    <link href="assets/corporate-lab.css" rel="stylesheet"/>
+    <link href="assets/build6-lab.css" rel="stylesheet"/>
+    <link href="assets/build7.css" rel="stylesheet"/>
+    <link href="assets/build8.css" rel="stylesheet"/>
+    <style>
+      /* Build 9: category help is visibly readable without hover. */ .axis-explanation{display:block!important;position:static!important;width:100%;color:#203342;background:#e6ede7;border-left:3px solid #6B8174;font-size:14px;line-height:1.5}.axis-help{display:none!important}.axis-header,.axis-head{align-items:flex-start}.axis{padding-bottom:20px}.axis-instructions{display:none} @media(max-width:600px){.axis-explanation{font-size:15px;padding:10px 12px;margin:7px 0 12px}.axis-head label,.axis-header label{flex-basis:100%}}
+    </style>
+  </head>
+  <body>
+    <div class="lab-topline">
+      <a href="field-notes.html">← Back to Field Notes</a><span>MICHELLE NTAMPAKA / THE POLICY LAB</span>
+    </div>
+    <main class="page">
+      <div class="eyebrow">
+        FIELD INSTRUMENT 011 / RESEARCH CULTURE DIVISION
+      </div>
+      <h1>The Policy Lab<span style="color:var(--rust)"> ✳</span></h1>
+      <p class="intro">What should a research group value when deciding how to use language AI? Every priority starts at <strong>1</strong>.&nbsp; You have <strong>20 additional points</strong> to distribute across eleven priorities, with a maximum of 5 per priority.&nbsp; There is no correct answer—only trade-offs worth discussing.</p>
+      <div class="dashboard">
+
+        <!-- PAGE SECTION -->
+        <section aria-labelledby="allocate-title" class="panel">
+          <h2 id="allocate-title">01 / Allocate your priorities</h2>
+          <div aria-live="polite" class="counter">
+            <span>ADDITIONAL POINTS<br/>REMAINING</span><strong id="remaining">20 / 20</strong>
+          </div>
+          <div aria-hidden="true" class="progress">
+            <div id="progress-fill"></div>
+          </div>
+          <div id="controls"></div>
+          <p class="axis-instructions">Select <strong>?</strong> beside any priority for its meaning.</p>
+          <div class="actions">
+            <button id="reset">↺ Reset</button>
+            <button class="primary" disabled="" id="interpret">Interpret my priorities →</button>
+          </div>
+        </section>
+
+        <!-- PAGE SECTION -->
+        <section aria-labelledby="chart-title" class="panel chart-panel">
+          <h2 id="chart-title">02 / Your policy fingerprint</h2>
+          <svg aria-label="Radar diagram of the eleven research priorities. Exact numeric values are listed in the controls." id="radar" role="img" viewbox="0 0 600 600"></svg>
+          <button class="print-action" id="print-diagram" type="button">⎙ Print diagram / Save as PDF</button>
+          <div class="legend">
+            <span><i class="swatch"></i>Your priorities</span><span><i class="swatch reference"></i>Comparison</span>
+          </div>
+          <label class="eyebrow" for="compare">COMPARE WITH AN ARCHETYPE</label>
+          <select id="compare"><option value="none">No overlay</option><option value="leverage">High Leverage</option><option value="craft">Craftsmanship</option><option value="trust">Trustworthiness</option><option value="steward">Data Stewardship</option></select>
+          <p class="small" id="archetype-description">Overlay an illustrative laboratory archetype to explore different priorities.</p>
+
+          <!-- PAGE SECTION -->
+          <section aria-live="polite" class="results" hidden="" id="results">
+            <div class="eyebrow">
+              YOUR LABORATORY REPORT
+            </div>
+            <h2>No perfect policy.&nbsp; Just deliberate choices.</h2>
+            <p id="interpretation"></p>
+            <p>Which priorities were hardest to leave at 1? Would your students and collaborators distribute the points differently? What concrete AI practices would follow?</p>
+            <p><em>A good policy starts with knowing what you value.</em></p>
+            <p><a href="https://arxiv.org/abs/2607.20836" rel="noopener noreferrer" target="_blank">Read the white paper ↗</a></p>
+          </section>
+        </section>
+      </div>
+      <div class="footer">
+        THE POLICY LAB · A PROTOTYPE INSPIRED BY “HOW TO CRAFT THE RIGHT LANGUAGE AI POLICY FOR YOUR RESEARCH GROUP” · Archetype reference values are illustrative and have not yet been verified against the paper.
+      </div>
+    </main>
+
+    <!-- PRINTABLE POLICY DIAGRAM -->
+    <section aria-label="Printable policy diagram" class="print-sheet" id="print-sheet">
+      <div class="print-sub">
+        THE POLICY LAB / RESEARCH PRIORITIES WORKSHEET
+      </div>
+      <h1>My Research Priorities</h1>
+      <p class="print-subtitle">A good policy starts with knowing what you value.</p>
+      <div class="print-sub">
+        ELEVEN PRIORITIES · 31 TOTAL POINTS · 1–5 PER AXIS
+      </div>
+      <svg aria-label="Black and white radar diagram" id="print-radar" role="img" viewbox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="print-sub" id="print-comparison"></div>
+      <table id="print-values">
+        <tbody>
+        </tbody>
+      </table>
+      <aside class="print-note">
+        <strong>Explore the ideas behind this diagram</strong>
+        <p>Read <em>How to Craft the Right Language AI Policy for Your Research Group (Some Assembly Required)</em> to explore how research priorities shape AI policy.</p>
+        <p><a href="https://arxiv.org/abs/2607.20836">https://arxiv.org/abs/2607.20836</a></p>
+      </aside>
+    </section>
+    <script>
+      (()=>{'use strict';
+      const axes=[['Fair Research Culture','Fair|Research Culture'],['Meaningful Human Ownership','Meaningful|Human Ownership'],['Retained Human Expertise','Retained|Human|Expertise'],['Human Evaluation','Human|Evaluation'],['Transparency & Disclosure','Transparency|& Disclosure'],['Academic Integrity','Academic|Integrity'],['Security','Security'],['Privacy','Privacy'],['Data Integrity','Data|Integrity'],['Operational Efficiency','Operational|Efficiency'],['Thoughtful Resource Usage','Thoughtful|Resource|Usage']];
+      const axisDescriptions=["Support a research environment where people can participate, learn, and raise concerns safely.", "Keep researchers responsible for the scientific questions, decisions, and final work.", "Ensure people continue developing the skills to work independently and check AI outputs.", "Have a person test, scrutinize, and make decisions about AI-assisted results.", "Explain when and how language AI was used so others can understand the work.", "Protect honest attribution, authorship, and responsible scholarly practice.", "Avoid exposing restricted information or compromising systems and accounts.", "Protect personal, confidential, or unpublished information shared during research.", "Maintain accurate, traceable, and appropriately handled research data.", "Reduce repetitive work without sacrificing scientific quality or oversight.", "Use time, money, computing, and environmental resources deliberately."];
+      const archetypes={leverage:{name:'High Leverage',description:'Emphasizes efficiency and thoughtful resource usage.',values:[2,2,1,2,2,1,2,1,2,5,5]},craft:{name:'Craftsmanship',description:'Emphasizes researcher development, human ownership, and expertise.',values:[5,5,5,2,1,1,1,1,2,1,1]},trust:{name:'Trustworthiness',description:'Emphasizes evaluation, transparency, and academic integrity.',values:[2,2,2,5,5,5,1,1,1,1,1]},steward:{name:'Data Stewardship',description:'Emphasizes security, privacy, and data integrity.',values:[2,1,1,2,2,1,5,4,4,1,2]}};
+      const values=Array(11).fill(1), controls=document.getElementById('controls'), svg=document.getElementById('radar'), ns='http://www.w3.org/2000/svg';let shown=false;
+      const sum=()=>values.reduce((a,b)=>a+b,0);const remaining=()=>31-sum();
+      function el(tag,attrs={},text){const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));if(text!==undefined)e.textContent=text;return e}
+      function pts(arr,r=178){return arr.map((v,i)=>{const a=-Math.PI/2+i*Math.PI*2/11;return [300+Math.cos(a)*r*v/5,300+Math.sin(a)*r*v/5]})}
+      function polygon(arr,attrs){return el('polygon',{points:pts(arr).map(p=>p.join(',')).join(' '),...attrs})}
+      function addLabel(svg,x,y,anchor,label,print=false){const lines=label.split('|');const t=el('text',{x,y,'text-anchor':anchor,'font-size':print?15:15,'font-family':print?'Arial, sans-serif':'inherit',fill:print?'#111':'currentColor'});lines.forEach((line,j)=>{const span=el('tspan',{x,dy:j===0?(-7*(lines.length-1)):17},line);t.append(span)});svg.append(t)}
+      function draw(){svg.replaceChildren();for(let n=1;n<=5;n++)svg.append(polygon(Array(11).fill(n),{fill:'none',stroke:'#83998F','stroke-width':n===5?1.5:1,opacity:n===5?.7:.35}));axes.forEach(([full,short],i)=>{const a=-Math.PI/2+i*Math.PI*2/11;const x=300+178*Math.cos(a),y=300+178*Math.sin(a);svg.append(el('line',{x1:300,y1:300,x2:x,y2:y,stroke:'#A7B5AC','stroke-width':1}));const lx=300+212*Math.cos(a),ly=300+212*Math.sin(a);addLabel(svg,lx,ly,Math.cos(a)>.2?'start':Math.cos(a)<-.2?'end':'middle',short)});const choice=document.getElementById('compare').value;if(archetypes[choice])svg.append(polygon(archetypes[choice].values,{fill:'#B77554','fill-opacity':'.07',stroke:'#B77554','stroke-width':2.5,'stroke-dasharray':'6 5'}));svg.append(polygon(values,{fill:'#496477','fill-opacity':'.25',stroke:'#203342','stroke-width':3,'stroke-linejoin':'round'}));pts(values).forEach(([cx,cy])=>svg.append(el('circle',{cx,cy,r:3.5,fill:'#B77554'})));}
+      function update(){const left=remaining();document.getElementById('remaining').textContent=left+' / 20';document.getElementById('progress-fill').style.width=((20-left)*5)+'%';document.getElementById('interpret').disabled=left!==0;axes.forEach((_,i)=>{document.getElementById('v'+i).textContent=values[i]+' / 5';const input=document.getElementById('s'+i);input.value=values[i];input.setAttribute('aria-valuetext',values[i]+' of 5 points; '+left+' additional points remaining');document.getElementById('minus'+i).disabled=values[i]<=1;document.getElementById('plus'+i).disabled=values[i]>=5||left<=0});if(shown){document.getElementById('results').hidden=true;shown=false}draw()}
+      function setValue(i,n){const max=Math.min(5,values[i]+remaining());values[i]=Math.max(1,Math.min(max,Number(n)));update()}
+      axes.forEach(([full],i)=>{const row=document.createElement('div');row.className='axis';const head=document.createElement('div');head.className='axis-header';const label=document.createElement('label');label.htmlFor='s'+i;label.textContent=full;const val=document.createElement('span');val.className='value';val.id='v'+i;const help=document.createElement('button');help.type='button';help.className='axis-help';help.textContent='?';help.setAttribute('aria-label','Explain '+full);help.setAttribute('aria-expanded','false');const tip=document.createElement('span');tip.className='axis-explanation';tip.id='axis-help-'+i;tip.textContent=axisDescriptions[i];help.setAttribute('aria-controls',tip.id);help.setAttribute('aria-describedby',tip.id);help.addEventListener('click',()=>{const next=help.getAttribute('aria-expanded')!=='true';document.querySelectorAll('.axis-help[aria-expanded="true"]').forEach(b=>b.setAttribute('aria-expanded','false'));help.setAttribute('aria-expanded',String(next));});head.append(label,help,val,tip);const control=document.createElement('div');control.className='control';const minus=document.createElement('button');minus.type='button';minus.className='step';minus.id='minus'+i;minus.textContent='−';minus.setAttribute('aria-label','Remove one point from '+full);minus.addEventListener('click',()=>setValue(i,values[i]-1));const range=document.createElement('input');range.type='range';range.min=1;range.max=5;range.step=1;range.value=1;range.id='s'+i;range.addEventListener('input',()=>setValue(i,range.value));const plus=document.createElement('button');plus.type='button';plus.className='step';plus.id='plus'+i;plus.textContent='+';plus.setAttribute('aria-label','Add one point to '+full);plus.addEventListener('click',()=>setValue(i,values[i]+1));control.append(minus,range,plus);row.append(head,control);controls.append(row)});
+      function drawPrint(){
+       const out=document.getElementById('print-radar');out.replaceChildren();
+       for(let n=1;n<=5;n++)out.append(polygon(Array(11).fill(n),{fill:'none',stroke:n===5?'#555':'#bbb','stroke-width':n===5?1.5:1}));
+       axes.forEach(([full,short],i)=>{const a=-Math.PI/2+i*Math.PI*2/11;
+       out.append(el('line',{x1:300,y1:300,x2:300+178*Math.cos(a),y2:300+178*Math.sin(a),stroke:'#aaa','stroke-width':1}));
+       addLabel(out,300+212*Math.cos(a),300+212*Math.sin(a),Math.cos(a)>.2?'start':Math.cos(a)<-.2?'end':'middle',short,true);
+       });
+       const choice=document.getElementById('compare').value;
+       out.append(polygon(values,{fill:'#999','fill-opacity':'0.30',stroke:'#111','stroke-width':2.7,'stroke-linejoin':'round'}));
+       if(archetypes[choice])out.append(polygon(archetypes[choice].values,{fill:'none',stroke:'#333','stroke-width':3,'stroke-dasharray':'8 5','stroke-linejoin':'round'}));
+       pts(values).forEach(([cx,cy])=>out.append(el('circle',{cx,cy,r:3,fill:'#111'})));
+       document.getElementById('print-comparison').textContent=archetypes[choice]?'Gray shading and solid outline: my priorities. Dashed outline: '+archetypes[choice].name+' (illustrative reference)':'Solid outline and gray shading: your laboratory';
+       const tbody=document.querySelector('#print-values tbody');tbody.replaceChildren();
+       axes.forEach(([name],i)=>{const tr=document.createElement('tr'),a=document.createElement('td'),b=document.createElement('td');a.textContent=name;b.textContent=values[i]+' / 5';tr.append(a,b);tbody.append(tr)});
+      }
+      document.getElementById('print-diagram').addEventListener('click',()=>{drawPrint();window.print()});
+      window.addEventListener('beforeprint',drawPrint);
+      document.getElementById('reset').addEventListener('click',()=>{values.fill(1);document.getElementById('compare').value='none';document.getElementById('archetype-description').textContent='Overlay an illustrative laboratory archetype to explore different priorities.';update()});document.getElementById('compare').addEventListener('change',e=>{const a=archetypes[e.target.value];document.getElementById('archetype-description').textContent=a?a.description:'Overlay an illustrative laboratory archetype to explore different priorities.';draw()});document.getElementById('interpret').addEventListener('click',()=>{if(remaining()!==0)return;const ranked=Object.values(archetypes).map(a=>({name:a.name,d:Math.sqrt(a.values.reduce((s,v,i)=>s+(v-values[i])**2,0))})).sort((a,b)=>a.d-b.d);document.getElementById('interpretation').textContent='Your allocation is numerically closest to the illustrative '+ranked[0].name+' archetype, followed by '+ranked[1].name+'. This is a comparison, not a score or a recommendation.';document.getElementById('results').hidden=false;shown=true;document.getElementById('results').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'})});update();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+/* Build 7: deliberate oracle composition, readable receipts, reversible About hierarchy. */
+/* Keep children pinned in their own coordinate system even if a fortune opens. */
+.oracle-wrap{position:absolute;right:0;bottom:-4px;width:124px;height:118px;isolation:isolate;overflow:visible}
+.oracle-triad{position:absolute;inset:0;width:124px;height:118px;transform:none!important;contain:layout;}
+.oracle-triad .oracle-orbit{position:absolute;left:0;top:0;width:124px;height:118px;inset:auto;opacity:1;transform:none;pointer-events:none;z-index:0;}
+.oracle-triad .triad-star{position:absolute!important;display:grid;place-items:center;width:31px;height:31px;z-index:1;margin:0;transform:none;}
+.oracle-triad .triad-taupe{left:43px;top:20px;color:#AD9076}
+.oracle-triad .triad-rust{left:77px;right:auto;top:49px;color:#B77554}
+.oracle-triad .triad-blue{left:37px;top:73px;bottom:auto;color:#496477!important;filter:none!important;cursor:pointer}
+.oracle-triad .triad-star svg{width:100%;height:100%;display:block;fill:currentColor}
+.oracle-triad .triad-blue svg path{fill:#496477!important}
+/* Spin only the blue icon, NOT the button's layout box or orbit. */
+.oracle-triad .triad-blue.oracle-spin{animation:none!important}
+.oracle-triad .triad-blue.oracle-spin svg{animation:build7-star-turn 1.4s cubic-bezier(.2,.5,.3,1)}
+@keyframes build7-star-turn{from{transform:rotate(0deg)}to{transform:rotate(720deg)}}
+.oracle-wrap .oracle-receipt{position:absolute!important;z-index:9;right:0;bottom:128px;width:clamp(240px, 34vw, 310px);margin:0;box-sizing:border-box;background:#FDFBF7;color:#203342;box-shadow:0 8px 28px #20334233;border-bottom:3px double #AD9076;}
+.oracle-receipt p#oracle-words{color:#203342!important;font-weight:500;opacity:1!important}
+.oracle-receipt .eyebrow{color:#496477!important}
+.oracle-receipt small{color:#496477!important}
+.page-about .build7-story{grid-template-columns:minmax(0,1fr);}
+.page-about .build7-story>div{max-width:790px}
+.page-about .build7-story h2{margin-top:0}
+.page-about .about-hero .lead{color:#496477}
+@media(max-width:580px){.oracle-wrap{right:0;bottom:-35px}.oracle-wrap .oracle-receipt{width:min(290px,calc(100vw - 46px));bottom:127px}}
+@media(prefers-reduced-motion:reduce){.oracle-triad .triad-blue.oracle-spin svg{animation:none}}

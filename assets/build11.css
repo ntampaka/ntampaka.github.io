@@ -1,0 +1,103 @@
+/* Build 11: isolated repairs, with a single source of truth for paw color. */
+:root { --paw-ink: #203342; --anomaly-blue: #496477; }
+/* Paw marks remain navy through every state, including keyboard focus and whole-story mode. */
+.page-about .paw-trail .pawprint,
+.page-about .paw-trail .pawprint:hover,
+.page-about .paw-trail .pawprint:focus,
+.page-about .paw-trail .pawprint:active,
+.page-about .paw-trail li.open .pawprint,
+.page-about .paw-trail.expanded .pawprint {
+  color:var(--paw-ink)!important;
+  transition:none!important;
+}
+.page-about .paw-trail .pawprint svg,
+.page-about .paw-trail .pawprint svg *,
+.page-about .paw-trail.expanded .pawprint svg *,
+.page-about .paw-trail li.open .pawprint svg *,
+.page-about .paw-trail li:nth-child(even) .pawprint svg * {
+  fill:var(--paw-ink)!important;
+  stroke:none!important;
+  color:var(--paw-ink)!important;
+  transition:none!important;
+}
+/* The Big Dipper image itself is untouched. Align the clickable star to the
+   gold star's measured center (620.5,535.6) in the original 1448 x 1086 PNG. */
+.page-field-notes .dipper-image-wrap { container-type:inline-size; }
+.page-field-notes .dipper-anomaly-star {
+  left:42.852%!important;
+  top:49.318%!important;
+  color:var(--anomaly-blue)!important;
+}
+.page-field-notes .dipper-anomaly-dot {
+  position:relative;
+  width:1.44cqw!important;
+  height:1.44cqw!important;
+  min-width:4px;
+  min-height:4px;
+  max-width:7px;
+  max-height:7px;
+  background:var(--anomaly-blue)!important;
+  box-shadow:0 0 0 1px #F6F4EE!important;
+  transition:transform .2s ease, box-shadow .2s ease!important;
+}
+/* Four-point sparkle is dormant until hover or keyboard focus. */
+.page-field-notes .dipper-anomaly-dot::after {
+  content:"";
+  position:absolute;
+  width:26px;
+  height:26px;
+  left:50%;top:50%;
+  background:var(--anomaly-blue);
+  clip-path:polygon(50% 0%,57% 39%,100% 50%,57% 57%,50% 100%,43% 57%,0% 50%,43% 43%);
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.45) rotate(-15deg);
+  transition:opacity .22s ease,transform .25s ease;
+  pointer-events:none;
+}
+.page-field-notes .dipper-anomaly-star:hover .dipper-anomaly-dot,
+.page-field-notes .dipper-anomaly-star:focus-visible .dipper-anomaly-dot {
+  transform:scale(1.24);
+  box-shadow:0 0 0 4px #49647744,0 0 12px #49647799!important;
+}
+.page-field-notes .dipper-anomaly-star:hover .dipper-anomaly-dot::after,
+.page-field-notes .dipper-anomaly-star:focus-visible .dipper-anomaly-dot::after {
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1.15) rotate(0deg);
+}
+.page-field-notes .dipper-anomaly-star:focus-visible {outline:2px solid var(--anomaly-blue)!important;outline-offset:1px;}
+/* Fortune is out of flow, and the whole art column reserves its maximum space.
+   Never clip a fortune or require scrolling to read the end. */
+.page-about .contact-section { min-height:475px!important; align-items:start!important; }
+.page-about .oracle-contact-art { height:450px!important; min-height:450px!important; max-height:none!important; }
+.page-about .oracle-wrap { height:450px!important; min-height:450px!important; max-height:none!important; }
+.page-about .oracle-wrap .oracle-receipt {
+  top:148px!important;
+  left:0!important;
+  width:260px!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  box-sizing:border-box!important;
+  padding:18px 19px 17px!important;
+}
+.page-about .oracle-wrap .oracle-receipt #oracle-words {
+  font-size:18px!important;
+  line-height:1.4!important;
+  overflow:visible!important;
+  overflow-wrap:break-word;
+  margin:12px 0 13px!important;
+}
+@media(max-width:670px) {
+ .page-about .contact-section { min-height:0!important; }
+ .page-about .oracle-contact-art { height:450px!important; min-height:450px!important; }
+ .page-about .oracle-wrap { height:450px!important; min-height:450px!important; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .page-field-notes .dipper-anomaly-dot,
+ .page-field-notes .dipper-anomaly-dot::after { transition:none!important; }
+}
+/* Italics are meaningful in the Pittsburgh sandwich fortune, not inherited by every word. */
+.page-about .oracle-wrap .oracle-receipt #oracle-words { font-style:normal!important; }
+.page-about .oracle-wrap .oracle-receipt #oracle-words em { font-style:italic!important; font-weight:600; }
+

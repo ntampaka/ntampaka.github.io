@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134" role="img" aria-label="MN monogram">
+ <rect width="134" height="134" fill="#fcfbf8"/>
+ <path d="M22.5 115.5 V20 H92.5 M118.5 39 V115.5 H22.5" fill="none" stroke="#bba985" stroke-width="1.7" stroke-linecap="square"/>
+ <text x="38.5" y="82.5" font-family="Georgia,'Times New Roman',serif" font-size="42" letter-spacing="-5" fill="#1d3341">MN</text>
+ <path d="M112 7.5 C113.9 13.8 117.6 18.1 124.8 20 C117.6 21.9 113.9 26.2 112 33 C110.1 26.2 106.3 21.9 99.5 20 C106.3 18.1 110.1 13.8 112 7.5Z" fill="#9b7846"/>
+</svg>

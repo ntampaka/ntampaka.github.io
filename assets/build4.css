@@ -1,0 +1,57 @@
+/* Build 4 refinements: quiet typography and intentional accents. */
+/* Homepage retains a single factual identification beside the approved constellation. */
+.page-index .home-hero{padding:86px 0 92px;}
+.page-index .hero-grid{grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.page-index .hero-copy{padding-top:108px;}
+.page-index .home-identification{max-width:450px}
+.page-index .home-identification h1{font:400 clamp(38px,4vw,54px)/1.12 var(--serif);letter-spacing:-.034em;color:#f4f1eb}
+.page-index .home-identification p{font:16px/1.8 var(--sans);margin-top:28px;max-width:400px;color:#d1dbda}
+/* No surplus Ursa Major artwork on the homepage. */
+.page-index .practice-section.practice-single{display:block;max-width:1200px}
+.page-index .practice-single>div{max-width:770px}
+/* Keep each page's astronomical panel in one deliberate position. */
+.page-index .hero-grid,.page-research .interior-hero,.page-field-notes .notes-hero{align-items:start}
+.page-research .interior-hero,.page-field-notes .notes-hero{padding-top:85px}
+/* Reading section becomes its own continuous dark-blue band. */
+.reading-band{background:#344e60;color:#f6f3ee;margin-top:45px;border-top:1px solid #607684}
+.reading-band .reading-room{padding:82px 0 90px}
+.reading-band .section-heading .eyebrow{color:#d6c19c}
+.reading-band .section-heading h2{color:#fbf7f0}
+.reading-band .reading-list{gap:0 52px}
+.reading-band .reading-entry{border-top-color:rgba(246,243,238,.24)}
+.reading-band .reading-entry h3{color:#fbf7f0}
+.reading-band .reading-entry .reading-no{color:#e3c595}
+.reading-band .reading-entry p{color:#e0e7e7}
+.reading-band .reading-entry a{color:#f5e2bd;text-decoration-thickness:1px}
+.reading-band .reading-entry a:hover{color:#fff9ec}
+/* The tooltip is a quiet footnote, not a dialog or badge. */
+.hover-plate{position:relative}
+.hover-plate::after{content:attr(data-tooltip);position:absolute;left:16px;right:42px;bottom:-27px;transform:translateY(2px);z-index:5;max-width:none;min-width:0;width:auto;background:transparent;border:0;border-radius:0;box-shadow:none;color:#6f8081;text-align:left;padding:0;font:11px/1.4 var(--sans);letter-spacing:.015em;white-space:normal;opacity:0;pointer-events:none;transition:opacity .23s ease,transform .23s ease}
+.hover-plate:hover::after,.hover-plate:focus-within::after,.hover-plate:focus::after,.hover-plate.is-tip-open::after{opacity:1;transform:translateY(0)}
+.plate-info{right:6px;bottom:5px;width:28px;height:28px;border:0;background:transparent;color:#788a8b;font:italic 14px var(--serif);opacity:.65}
+@media(hover:hover) and (pointer:fine){.plate-info{opacity:.15}.hover-plate:hover .plate-info,.plate-info:focus-visible{opacity:.75}}
+/* Reserve a discreet caption line below each illustration. */
+.cass-card .sky-caption{min-height:36px;border-top:0}
+.orion-card .image-stage{margin-bottom:37px}
+.dipper-panel{padding-bottom:40px}
+.dipper-panel.hover-plate::after{bottom:12px}
+.dipper-panel .plate-info{bottom:8px}
+/* The pawprints themselves form the path; no dotted connecting lines. */
+.paw-trail{padding:24px 0 22px;min-height:238px;gap:8px}
+.paw-trail li:nth-child(n){transform:translateY(0)}
+.paw-trail li:nth-child(1){transform:translateY(20px)}
+.paw-trail li:nth-child(2){transform:translateY(-9px)}
+.paw-trail li:nth-child(3){transform:translateY(14px)}
+.paw-trail li:nth-child(4){transform:translateY(31px)}
+.paw-trail li:nth-child(5){transform:translateY(-5px)}
+.paw-trail li:nth-child(6){transform:translateY(22px)}
+.paw-trail li:nth-child(7){transform:translateY(-9px)}
+.paw-trail li::before,.paw-trail li::after{display:none!important;content:none!important}
+.pawprint{transform:rotate(calc(90deg + var(--paw-rotation,0deg)));width:58px;height:58px}
+.paw-event{font-size:12px;max-width:175px;color:#243c46}
+/* Footer: keep one name and one clear description. */
+.site-footer{padding-bottom:34px}
+.footer-main{padding-bottom:0}
+@media(max-width:900px){.page-index .hero-copy{padding-top:32px}.page-index .hero-grid{grid-template-columns:1fr;gap:42px}.paw-trail{min-height:unset;row-gap:38px}.paw-trail li:nth-child(n){transform:translateY(0)}}
+@media(max-width:520px){.reading-band .reading-room{padding:60px 0 65px}.reading-band .reading-list{grid-template-columns:1fr}.page-index .home-hero{padding:44px 0 58px}.page-index .home-identification h1{font-size:38px}.page-index .home-identification p{margin-top:18px}.paw-trail{row-gap:18px}.plate-info{opacity:.75}}
+@media(prefers-reduced-motion:reduce){.hover-plate::after{transition:none}}

@@ -1,0 +1,34 @@
+/* Build 10: remove unnecessary interface friction and keep playful details understated. */
+:root { --navy:#203342; --ink:#203342; --paper:#F6F4EE; --sage:#6B8174; --taupe:#AD9076; --gold:#AD9076; }
+/* Field Notes shared banner: exact same horizontal container as Research, no nested offset. */
+.page-field-notes .notes-hero { width:min(1200px,calc(100% - 100px))!important; max-width:none!important; margin-inline:auto!important; padding-inline:0!important; box-sizing:border-box!important; }
+.page-field-notes .notes-hero-copy { margin:0!important; padding:0!important; min-width:0!important; }
+.page-field-notes .notes-hero-art { min-width:0!important; width:100%!important; max-width:390px!important; justify-self:end!important; margin:0!important; }
+.page-field-notes .notes-hero .dipper-panel { max-width:390px!important; width:100%!important; margin:0!important; }
+/* Homepage: three equal-height cards, with CTAs pinned to a single baseline. */
+.page-index .chapters { padding-top:24px!important; align-items:stretch!important; }
+.page-index .chapters article { display:flex!important; flex-direction:column!important; min-width:0!important; padding-bottom:2px!important; }
+.page-index .chapters article h3 { min-height:0!important; }
+.page-index .chapters article p:not(.eyebrow) { min-height:0!important; }
+.page-index .chapters article .text-link { align-self:flex-start!important; margin-top:auto!important; }
+/* Pawprints: one fixed navy, including hover, selected and expanded states. */
+/* Cosmic Oracle: fixed-size art column, fortune absolutely positioned, never in document flow. */
+.page-about .contact-section { align-items:start!important; min-height:390px!important; }
+.page-about .contact-section>div:first-child { align-self:start!important; }
+.page-about .oracle-contact-art { position:relative!important; align-self:start!important; min-height:350px!important; height:350px!important; max-height:350px!important; overflow:visible!important; }
+.page-about .oracle-wrap { position:relative!important; width:260px!important; height:350px!important; min-height:350px!important; max-height:350px!important; margin:0 auto!important; display:block!important; }
+.page-about .oracle-triad { position:absolute!important; top:0!important; left:60px!important; width:140px!important; height:135px!important; margin:0!important; }
+.page-about .oracle-wrap .oracle-receipt { position:absolute!important; top:148px!important; left:0!important; right:auto!important; bottom:auto!important; margin:0!important; width:260px!important; max-height:198px!important; overflow-y:auto!important; transform:none!important; }
+.page-about .oracle-wrap .oracle-receipt[hidden] { display:none!important; }
+/* Dipper star: preserve the original painting and its seven star positions. The sage center replaces one gold center as a separate overlay. */
+.page-field-notes .dipper-image-wrap { position:relative; width:100%; line-height:0; }
+.page-field-notes .dipper-image-wrap>img { width:100%!important; height:auto!important; display:block; }
+.page-field-notes .dipper-anomaly-star { position:absolute; left:41.91%; top:50.80%; transform:translate(-50%,-50%); width:44px; height:44px; display:grid; place-items:center; padding:0; border:0; border-radius:50%; background:transparent; color:#6B8174; z-index:5; cursor:pointer; }
+.page-field-notes .dipper-anomaly-dot { display:block; width:6px; height:6px; border-radius:50%; background:#6B8174; box-shadow:0 0 0 1px #F6F4EE; transition:transform .2s ease,box-shadow .2s ease; }
+.page-field-notes .dipper-anomaly-star:hover .dipper-anomaly-dot,.page-field-notes .dipper-anomaly-star:focus-visible .dipper-anomaly-dot { transform:scale(1.2); box-shadow:0 0 0 3px #6B817440; }
+.page-field-notes .dipper-anomaly-star:focus-visible { outline:2px solid #6B8174; outline-offset:0; }
+/* Remove any legacy boxed discoverability styling from the new entrance. */
+.page-field-notes .dipper-anomaly-star:not(:hover):not(:focus-visible) { outline:none; }
+@media(max-width:800px){ .page-field-notes .notes-hero-art { justify-self:start!important; } }
+@media(max-width:670px){ .page-field-notes .notes-hero { width:calc(100% - 40px)!important; } .page-about .contact-section { min-height:0!important; } .page-about .oracle-contact-art { height:350px!important; } .page-about .oracle-wrap { margin-left:0!important; } .page-index .chapters { padding-top:25px!important; } }
+@media(prefers-reduced-motion:reduce){ .page-field-notes .dipper-anomaly-dot { transition:none; } }

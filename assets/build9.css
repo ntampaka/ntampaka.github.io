@@ -1,0 +1,61 @@
+/* Build 9: authority, invitation, and restrained discovery. */
+:root{--b9-navy:#203342;--b9-blue:#496477;--b9-ivory:#F6F4EE;--b9-sage:#6B8174}
+/* All four banner openings are one visual system: consistent columns, spacing, typographic baseline. */
+.page-index .home-hero,.page-about .about-hero,.page-research .interior-hero,.page-field-notes .notes-hero{background:#203342!important;color:#F6F4EE!important;min-height:425px;box-sizing:border-box}
+.page-index .home-hero,.page-about .about-hero{padding:54px 0 58px!important}
+.page-research .interior-hero,.page-field-notes .notes-hero{padding-top:54px!important;padding-bottom:58px!important}
+.page-index .hero-grid,.page-about .about-grid,.page-research .interior-hero,.page-field-notes .notes-hero{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;gap:clamp(30px,5vw,72px)!important;align-items:start!important}
+.page-index .hero-copy,.page-about .about-grid>div:first-child,.page-research .interior-hero>div:first-child,.page-field-notes .notes-hero-copy{padding-top:0!important;margin-top:0!important}
+.page-index .hero-eyebrow,.page-about .about-hero .eyebrow,.page-research .interior-hero .eyebrow,.page-field-notes .notes-hero .eyebrow{color:#D1DEE0!important;font:600 11px/1.5 var(--sans)!important;letter-spacing:.15em!important;margin:0 0 20px!important}
+.page-index .home-hero h1,.page-about .about-hero h1,.page-research .interior-hero h1,.page-field-notes .notes-hero h1{font-family:var(--serif)!important;font-size:clamp(44px,4.4vw,62px)!important;line-height:1.12!important;letter-spacing:-.035em!important;color:#F6F4EE!important;margin:0 0 21px!important;font-weight:400!important}
+.page-index .home-hero p:not(.eyebrow),.page-about .about-hero p:not(.eyebrow),.page-research .interior-hero p:not(.eyebrow),.page-field-notes .notes-hero p:not(.eyebrow){color:#F0EEE8!important}
+.page-index .home-hero .sky-card,.page-research .orion-card,.page-field-notes .dipper-panel,.page-about .portrait{width:100%!important;max-width:390px!important;justify-self:end!important;margin:0!important;box-sizing:border-box}
+.page-index .home-hero .sky-card img,.page-research .orion-card img,.page-field-notes .dipper-panel img{width:100%!important}
+.page-index .home-hero .plate-label,.page-research .orion-card .plate-label,.page-field-notes .dipper-panel .plate-label{min-height:48px;box-sizing:border-box}
+.page-about .portrait img{width:100%;height:auto;object-fit:cover}
+.page-index .home-hero{background:#203342!important}
+/* A few footprints, not a procession of giant stamps. */
+.paw-trail{min-height:150px!important;padding:18px 0!important;gap:4px!important}
+.pawprint{width:37px!important;height:37px!important;padding:6px!important;transition:color .15s ease!important}
+.paw-trail li:nth-child(n){transform:translateY(0)!important}
+.paw-trail li:nth-child(3n){transform:translateY(7px)!important}
+.paw-trail li:nth-child(4n){transform:translateY(-4px)!important}
+.paw-trail li .paw-event{font-size:12px!important}
+/* Oracle: absolute art layer doesn't reflow; receipt occupies reserved separate column below. */
+.page-about .oracle-contact-art{align-self:stretch;min-height:200px}
+.page-about .oracle-wrap{align-items:center!important;justify-content:flex-start!important;width:260px!important;flex-shrink:0;gap:0!important}
+.page-about .oracle-triad{width:140px!important;height:135px!important;min-height:135px!important;flex:none!important;display:block!important;position:relative!important;margin:0 auto!important;transform:none!important}
+.page-about .oracle-triad .triad-star{position:absolute!important;display:grid!important;transform:none!important;margin:0!important;box-sizing:border-box!important}
+.page-about .oracle-wrap .oracle-receipt{margin:12px 0 0!important;width:260px!important;position:relative!important;transform:none!important}
+.page-about .oracle-wrap .oracle-receipt[hidden]{display:none!important}
+.page-about .oracle-triad .triad-blue.oracle-spin{animation:none!important}
+.page-about .oracle-triad .triad-blue.oracle-spin svg{animation:build7-star-turn 1.4s cubic-bezier(.2,.5,.3,1)!important}
+/* Easily discoverable, not attention-seeking, entrance. */
+.anomaly-discoverable{width:auto!important;height:auto!important;min-height:44px!important;padding:8px 14px!important;color:#496477!important;font:600 13px/1.5 var(--sans)!important;letter-spacing:.025em;border:1px solid #B7C8C4!important;border-radius:4px!important;background:#EDF1EC!important;transition:background .2s ease}
+.anomaly-discoverable:hover,.anomaly-discoverable:focus-visible{background:#DDE9DF!important;color:#203342!important}
+/* Research results use verifiable, restrained evidence rather than value-language. */
+.research-results{padding:62px 0 38px}
+.research-result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.research-result{border-top:3px solid #6B8174;background:#F0F3EE;padding:24px;display:flex;flex-direction:column;gap:13px}
+.research-result h3{font:normal 26px/1.2 var(--serif);color:#203342;margin:0}
+.research-result p{font:15px/1.65 var(--sans);color:#394C56;margin:0;flex:1}
+.research-result a{font:600 12px/1.5 var(--sans);color:#203342}
+/* Ink-first game UIs; muted sage in actual playfields is set in arcade.js/hunter.js. */
+.arcade-head{background:#203342!important}.arcade-stats,.arcade-lesson{border-left-color:#6B8174!important}
+.arcade-overlay button:not(.arcade-close){background:#E5EDE6!important;color:#203342!important;border-color:#6B8174!important}
+.arcade-overlay button:not(.arcade-close):hover{background:#C8D9CC!important;color:#203342!important}
+.arcade-overlay .arcade-screen{background:#203342!important}
+@media(max-width:800px){.page-index .hero-grid,.page-about .about-grid,.page-research .interior-hero,.page-field-notes .notes-hero{grid-template-columns:1fr!important;gap:25px!important}.page-index .home-hero,.page-about .about-hero,.page-research .interior-hero,.page-field-notes .notes-hero{min-height:0!important}.page-index .home-hero .sky-card,.page-research .orion-card,.page-field-notes .dipper-panel,.page-about .portrait{justify-self:start!important;max-width:390px!important}.research-result-grid{grid-template-columns:1fr}.paw-trail{row-gap:16px!important}.page-about .oracle-wrap{align-items:flex-start!important}}
+@media(prefers-reduced-motion:reduce){.anomaly-discoverable,.pawprint{transition:none!important}}
+/* Replace legacy retro-game oranges (including dialog and score labels). */
+.arcade-cabinet{box-shadow:7px 7px 0 #6B8174!important}
+.arcade-stats{background:#E4EBE5!important;color:#203342!important;border:1px solid #A5B8AA}
+.arcade-stats strong,.arcade-message strong{color:#203342!important}
+.arcade-message{background:#F6F4EEf2!important;color:#203342!important;border:2px solid #6B8174!important}
+.arcade-message span,.arcade-message p,.arcade-lesson p,.arcade-status,.arcade-footnote{color:#203342!important}
+.arcade-overlay .arcade-start,.arcade-overlay .hunter-start{background:#6B8174!important;color:#F6F4EE!important}
+.arcade-overlay .arcade-head .arcade-eyebrow{color:#E6EDE8!important}
+.page-about .contact-section{grid-template-columns:minmax(0,1fr) minmax(250px,300px)!important}
+.paw-trail{grid-template-columns:repeat(9,minmax(0,1fr))!important}
+@media(max-width:900px){.paw-trail{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
+@media(max-width:540px){.paw-trail{grid-template-columns:repeat(3,minmax(0,1fr))!important}.page-about .contact-section{grid-template-columns:1fr!important}.page-about .oracle-contact-art{grid-column:1!important;grid-row:auto!important}}

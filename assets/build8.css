@@ -1,0 +1,56 @@
+/* Build 8: a slate first impression, ivory reading rooms, and deliberate Easter eggs. */
+:root{--build8-slate:#203342;--build8-blue:#496477;--build8-ivory:#F6F4EE;--build8-rust:#B77554;--build8-taupe:#AD9076}
+/* The long unified tagline is a quiet masthead detail, never a crowded headline. */
+.site-header .brand{white-space:normal;max-width:min(42vw,440px)}
+.site-header .brand small{max-width:390px;letter-spacing:.075em;font-size:9px;line-height:1.45;color:#496477;text-transform:none;margin-top:5px}
+.page-index .chapters .chapter-no{display:none!important}
+.page-index .chapters article{padding-top:3px}
+/* Three coordinated, compact, full-bleed dark editorial openings. */
+.page-about .about-hero{background:var(--build8-slate);color:var(--build8-ivory);padding:54px 0 57px}
+.page-about .about-hero h1,.page-about .about-hero .lead,.page-about .about-hero p:not(.eyebrow),.page-about .about-hero .text-link{color:var(--build8-ivory)!important}
+.page-about .about-hero .eyebrow{color:#CFDCE1!important;letter-spacing:.16em}
+.page-about .about-hero .button{background:var(--build8-ivory);color:var(--build8-slate);border-color:var(--build8-ivory)}
+.page-about .about-hero .portrait img{border-color:#E9E4DA;}
+.page-about .about-hero .portrait figcaption{color:#C7D4DC}
+/* Full-bleed pseudo-background without changing the existing illustration grid. */
+.page-research .interior-hero,.page-field-notes .notes-hero{position:relative;isolation:isolate;color:var(--build8-ivory)}
+.page-research .interior-hero::before,.page-field-notes .notes-hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:var(--build8-slate)}
+.page-research .interior-hero{padding-top:57px;padding-bottom:53px}
+.page-field-notes .notes-hero{padding-top:57px;padding-bottom:53px}
+.page-research .interior-hero h1,.page-field-notes .notes-hero h1,.page-research .interior-hero p,.page-field-notes .notes-hero p{color:var(--build8-ivory)!important}
+.page-research .interior-hero .eyebrow,.page-field-notes .notes-hero .eyebrow{color:#CBD8DF!important;letter-spacing:.16em}
+.page-research .interior-hero .lead,.page-field-notes .notes-hero .lead{color:#F0EDE6!important}
+.page-research .interior-hero .text-link{color:#F5EDE2!important}
+.page-research .interior-hero .text-link:hover{color:#FFF!important}
+.page-research .orion-card,.page-field-notes .dipper-panel{box-shadow:0 12px 25px #0e1c2755}
+/* Research and Field Notes keep the serious body copy; labels become navigational, not rhetorical. */
+.page-research .story-index,.page-field-notes .resource-number{letter-spacing:.1em;color:#496477}
+/* Protect the Cassiopeia star shape and present a precise empty target: no fuzz or glow. */
+#cass-stage #star-home,#cass-stage #star-home span,#cass-stage #loose-star,#cass-stage #loose-star svg{filter:none!important;box-shadow:none!important;text-shadow:none!important;backdrop-filter:none!important}
+#cass-stage #star-home span{width:20px;height:20px;background:transparent!important;border:1px dashed #B77554!important;outline:none;border-radius:50%}
+#cass-stage #star-home.target span{border:1.5px solid #B77554!important;box-shadow:none!important}
+#cass-stage.complete #star-home span{border:0!important;opacity:0}
+#cass-stage #loose-star svg{filter:none!important}
+/* About: the Oracle is personal, fixed beside the contact invitation, not floating above Field Notes. */
+.page-about .contact-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(235px,300px) 34px;gap:18px;align-items:center;min-height:300px}
+.page-about .oracle-contact-art{position:relative;display:flex;align-items:flex-start;justify-content:center;min-height:210px;align-self:center}
+.page-about .oracle-wrap{position:relative!important;right:auto!important;bottom:auto!important;left:auto!important;top:auto!important;width:260px;height:auto;min-height:165px;overflow:visible;display:flex;flex-direction:column;align-items:center;gap:12px}
+.page-about .oracle-triad{position:relative!important;width:140px!important;height:135px!important;inset:auto!important;flex:0 0 135px;transform:none!important;contain:layout}
+.page-about .oracle-triad .oracle-orbit{position:absolute;left:0;top:0;width:140px;height:135px;opacity:.85;pointer-events:none}
+.page-about .oracle-triad .triad-star{width:34px;height:34px;z-index:2}
+.page-about .oracle-triad .triad-taupe{left:48px;top:21px;color:#AD9076}
+.page-about .oracle-triad .triad-rust{left:96px;top:58px;color:#B77554}
+.page-about .oracle-triad .triad-blue{left:42px;top:88px;color:#496477!important}
+.page-about .oracle-triad .triad-blue:hover{filter:brightness(.88)!important}
+.page-about .oracle-triad .triad-blue:focus-visible{outline:2px solid #496477;outline-offset:4px;border-radius:50%}
+/* Fortune appears within the same contact space, not as an overlay or a jumpy dialog. */
+.page-about .oracle-wrap .oracle-receipt{position:relative!important;inset:auto!important;width:min(100%,260px);box-shadow:0 3px 16px #20334218;border:1px solid #D8D2C6;border-bottom:2px solid #AD9076;background:#FDFBF7;padding:18px 19px 15px;color:#203342;z-index:3;animation:build8-arrival 240ms ease-out}
+.page-about .oracle-wrap .oracle-receipt[hidden]{display:none!important}
+.page-about #oracle-words{color:#203342!important;font-weight:500!important;font-size:19px;line-height:1.45;margin:14px 0!important}
+.page-about .oracle-receipt .eyebrow,.page-about .oracle-receipt small{color:#496477!important}
+.page-about .oracle-close{color:#203342}
+.page-about .contact-mark{padding:0;align-self:end;justify-self:end;opacity:.9}
+@keyframes build8-arrival{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.page-about .contact-section{grid-template-columns:minmax(0,1fr) 250px 22px}.page-about .oracle-wrap{width:240px}.page-about .oracle-triad{transform:none!important}}
+@media(max-width:670px){.page-about .contact-section{grid-template-columns:1fr 34px;align-items:start;gap:18px;padding-top:50px}.page-about .contact-section>div:first-child{grid-column:1/-1}.page-about .oracle-contact-art{grid-column:1;grid-row:2;justify-content:flex-start;min-height:165px}.page-about .oracle-wrap{width:260px;align-items:flex-start}.page-about .oracle-triad{margin-left:30px}.page-about .contact-mark{grid-column:2;grid-row:2}.page-about .oracle-wrap .oracle-receipt{margin-left:0}.site-header .brand{max-width:calc(100% - 100px)}}
+@media(prefers-reduced-motion:reduce){.page-about .oracle-wrap .oracle-receipt{animation:none}}

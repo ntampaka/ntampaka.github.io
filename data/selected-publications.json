@@ -1,0 +1,156 @@
+[
+  {
+    "year": 2026,
+    "title": "Estimating the triaxiality of massive clusters from 2D observables in MillenniumTNG with machine learning",
+    "authors": "Delgado, Ntampaka, and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2026ApJ..1002..142D/abstract",
+    "topic": "Cluster structure"
+  },
+  {
+    "year": 2025,
+    "title": "The Importance of Being Adaptable: An Exploration of the Power and Limitations of Domain Adaptation for Simulation-Based Inference with Galaxy Clusters",
+    "authors": "Ntampaka and collaborators; public preprint",
+    "url": "https://arxiv.org/search/?query=The+Importance+of+Being+Adaptable+Ntampaka&searchtype=all",
+    "topic": "Trustworthy ML"
+  },
+  {
+    "year": 2025,
+    "title": "A Multi-Wavelength Technique for Estimating Galaxy Cluster Mass Accretion Rates",
+    "authors": "Soltis, Ntampaka, and collaborators",
+    "url": "https://arxiv.org/abs/2412.05370",
+    "topic": "Cluster structure"
+  },
+  {
+    "year": 2025,
+    "title": "Reconstructing Galaxy Cluster Mass Maps using Score-based Generative Modeling",
+    "authors": "Hsu and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2025OJAp....8...92H/abstract",
+    "topic": "Cluster structure"
+  },
+  {
+    "year": 2025,
+    "title": "Galaxy Cluster Characterization with Machine Learning Techniques",
+    "authors": "Sadikov and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2025ApJ...986...24S/abstract",
+    "topic": "Cluster structure"
+  },
+  {
+    "year": 2024,
+    "title": "LoVoCCS II: Weak-lensing mass distributions and galaxy alignments",
+    "authors": "Fu and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2024ApJ...974...69F/abstract",
+    "topic": "Survey science"
+  },
+  {
+    "year": 2024,
+    "title": "Designing an Evaluation Framework for Large Language Models in Astronomy Research",
+    "authors": "Wu and collaborators",
+    "url": "https://arxiv.org/abs/2405.20389",
+    "topic": "Trustworthy ML"
+  },
+  {
+    "year": 2023,
+    "title": "Painting baryons onto N-body simulations of galaxy clusters with image-to-image deep learning",
+    "authors": "Chadayammuri, Ntampaka, and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2023MNRAS.526.2812C/abstract",
+    "topic": "Survey science"
+  },
+  {
+    "year": 2023,
+    "title": "Benchmarks and Explanations for Deep Learning Estimates of X-ray Galaxy Cluster Masses",
+    "authors": "Ho, Soltis, Farahi, Nagai, Evrard, and Ntampaka",
+    "url": "https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.3289H/abstract",
+    "topic": "Trustworthy ML"
+  },
+  {
+    "year": 2022,
+    "title": "The Importance of Being Interpretable: Toward An Understandable Machine Learning Encoder for Galaxy Cluster Cosmology",
+    "authors": "Ntampaka and Vikhlinin",
+    "url": "https://arxiv.org/abs/2112.05768",
+    "topic": "Trustworthy ML"
+  },
+  {
+    "year": 2022,
+    "title": "A Machine Learning Approach to Enhancing eROSITA Observations",
+    "authors": "Soltis, Ntampaka, and collaborators",
+    "url": "https://arxiv.org/abs/2207.14324",
+    "topic": "Survey science"
+  },
+  {
+    "year": 2022,
+    "title": "Deep Learning and the Dynamical Mass of the Coma Cluster",
+    "authors": "Ho, Ntampaka, and collaborators",
+    "url": "https://arxiv.org/search/?query=Deep+Learning+and+the+Dynamical+Mass+of+the+Coma+Cluster&searchtype=title",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2020,
+    "title": "A Hybrid Deep Learning Approach to Cosmological Constraints From Galaxy Redshift Surveys",
+    "authors": "Ntampaka, Eisenstein, Yuan, and Garrison",
+    "url": "https://ui.adsabs.harvard.edu/abs/2020ApJ...889..151N/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2020,
+    "title": "SuperRAENN: A Semi-supervised Photometric Classification Pipeline for Spectroscopically-Classified Pan-STARRS1 Supernovae",
+    "authors": "Villar and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2020ApJ...905...94V/abstract",
+    "topic": "Survey science"
+  },
+  {
+    "year": 2019,
+    "title": "A Deep Learning Approach to Galaxy Cluster X-ray Masses",
+    "authors": "Ntampaka and collaborators",
+    "url": "https://arxiv.org/abs/1810.07703",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2019,
+    "title": "Using X-ray Morphological Parameters to Strengthen Galaxy Cluster Mass Estimates via Machine Learning",
+    "authors": "Green, Ntampaka, and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2019ApJ...884...33G/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2019,
+    "title": "Cluster Cosmology With the Velocity Distribution Function of the HeCS-SZ Sample",
+    "authors": "Ntampaka, Rines, and Trac",
+    "url": "https://ui.adsabs.harvard.edu/abs/2019ApJ...880..154N/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2019,
+    "title": "Machine Learning Applied to the Reionization History of the Universe",
+    "authors": "La Plante and Ntampaka",
+    "url": "https://ui.adsabs.harvard.edu/abs/2019ApJ...880..110L/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2017,
+    "title": "The Velocity Distribution Function of Galaxy Clusters as a Cosmological Probe",
+    "authors": "Ntampaka, Trac, Cisewski, and Price",
+    "url": "https://ui.adsabs.harvard.edu/abs/2017ApJ...835..106N/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2016,
+    "title": "Dynamical Mass Measurements of Contaminated Galaxy Clusters Using Machine Learning",
+    "authors": "Ntampaka and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2016ApJ...831..135N/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2015,
+    "title": "A Machine Learning Approach for Dynamical Mass Measurements of Galaxy Clusters",
+    "authors": "Ntampaka and collaborators",
+    "url": "https://ui.adsabs.harvard.edu/abs/2015ApJ...803...50N/abstract",
+    "topic": "Masses and cosmology"
+  },
+  {
+    "year": 2013,
+    "title": "A First Look at Creating Mock Catalogs With Machine Learning Techniques",
+    "authors": "Xu, Ho, Trac, Schneider, Poczos, and Ntampaka",
+    "url": "https://ui.adsabs.harvard.edu/abs/2013ApJ...772..147X/abstract",
+    "topic": "Survey science"
+  }
+]

@@ -1,14 +1,9 @@
-# The Policy Lab — Mobile Edition
+# Rigorous Curiosity — Build 12.1
 
-A standalone, mobile-first interactive research-priorities radar plot.
+**Editor-friendly release candidate** based on Build 12.  The site looks and behaves the same, but the source is organized for comfortable editing on a Mac.
 
-## Publish on GitHub Pages
+**Start with [`EDITING-GUIDE.md`](EDITING-GUIDE.md).**  In VS Code, choose **File → Open Folder**, select this folder, and use **⌘F** to find copy.  Press **Option+Z** to enable Word Wrap for long paragraphs.
 
-1. Create a GitHub repository and upload the contents of this folder to its root (not the ZIP file itself).
-2. In the repository, go to **Settings → Pages**.
-3. Under **Build and deployment**, select **Deploy from a branch**, branch **main**, folder **/(root)**, and save.
-4. Open the GitHub Pages URL shown in Settings → Pages after deployment.
+Main text files: `index.html` (Home), `research.html` (Research), `field-notes.html` (Field Notes), `about.html` (About).  For the Oracle's fortunes, edit `assets/oracle.js`; for career milestones, edit `assets/site.js`.
 
-`index.html` is the landing page. No build step, dependencies, or server-side code are required. You can also open `index.html` locally to test it.
-
-Based on the research-group AI policy framework: https://arxiv.org/abs/2607.20836
+Open `index.html` with a local web server to preview interactive elements.  The original Build 12 is unchanged.  See `QA-REPORT.md` for 18 visual regression comparisons.

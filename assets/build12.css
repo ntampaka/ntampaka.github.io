@@ -1,0 +1,30 @@
+/* Build 12 final release candidate: stable, hover-only career trail. */
+.page-about .paw-trail .pawprint {
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ box-sizing:border-box;
+ cursor:default!important;
+ color:#203342!important;
+ background:transparent!important;
+ border:0!important;
+ text-decoration:none;
+}
+.page-about .paw-trail .pawprint svg,
+.page-about .paw-trail .pawprint svg * { fill:#203342!important; color:#203342!important; }
+.page-about .paw-trail .pawprint:focus-visible { outline:2px solid #496477; outline-offset:2px; border-radius:7px; }
+/* No selected state exists.  Hover and keyboard focus show a preview;
+   Show the whole story exposes all milestones for touch and other users. */
+.page-about .paw-trail li .paw-event { visibility:hidden; opacity:0; }
+.page-about .paw-trail li:hover .paw-event,
+.page-about .paw-trail li:focus-within .paw-event,
+.page-about .paw-trail.expanded li .paw-event { visibility:visible; opacity:1; }
+/* Preserve intentional double sentence spaces in dynamically rendered fortunes. */
+.page-about #oracle-words { white-space:pre-wrap!important; }
+
+/* Career timeline: 11 pawprints in one row on laptop and desktop */
+@media (min-width: 800px) {
+  .page-about #paw-trail {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+}
